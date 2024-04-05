@@ -10,4 +10,4 @@ WORKDIR /app
 
 RUN chmod +x ./create_db.sh
 
-CMD ["./create_db.sh"]
+CMD ["sh", "-c", "service mariadb start && ./create_db.sh"]
