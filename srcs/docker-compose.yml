@@ -1,12 +1,24 @@
 version: '3.8'
 services:
-  nginx:
-    build: ./nginx/
-    ports:
-      -443:433
-  mariadb:
-    build: ./mariadb
-    ports:
-      -3306:3306
   wordpress:
-    build: ./wordpress
+    container_name: wordpress
+    build: ./requirements/wordpress
+  nginx:
+    container_name: nginx
+    build: ./requirements/nginx/
+    ports:
+      - 443:433
+    env_file:
+      - .env
+  mariadb:
+    container_name: mariadb
+    build: ./requirements/mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_DATABASE=
+      - MYSQL_USER=
+      - MYSQL_PASSWORD=
+    ports:
+      - 3306:3306
+    env_file:
+      - .env
