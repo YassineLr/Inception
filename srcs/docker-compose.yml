@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  nginx:
+    build: ./nginx/
+    ports:
+      -443:433
+  mariadb:
+    build: ./mariadb
+    ports:
+      -3306:3306
+  wordpress:
+    build: ./wordpress
