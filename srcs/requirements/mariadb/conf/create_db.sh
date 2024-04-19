@@ -1,7 +1,6 @@
-echo "CREATE DATABASE IF NOT EXISTS db_name" | mariadb
-echo "CREATE USER IF NOT EXISTS yassine IDENTIFIED BY '123'" | mariadb
-echo "GRANT ALL PRIVILEGES ON db_name.* TO 'yassine' IDENTIFIED BY '123'" | mariadb
-
 service mysql start
-
-mysqld_safe
+sleep 1
+echo "CREATE DATABASE IF NOT EXISTS $DB_NAME ;" | mariadb
+echo "CREATE USER IF NOT EXISTS $DB_USER IDENTIFIED BY '$DB_PASS';" | mariadb
+echo "GRANT ALL PRIVILEGES ON $DB_NAME.* TO $DB_USER IDENTIFIED BY '$DB_PASS';" | mariadb
+service mysql stop

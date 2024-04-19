@@ -10,6 +10,4 @@ WORKDIR /app
 
 RUN chmod +x ./create_db.sh
 
-RUN ./create_db.sh
-
-CMD [ "mysqld" ]
+CMD ["/bin/sh", "-c", "./create_db.sh && mysqld"]
