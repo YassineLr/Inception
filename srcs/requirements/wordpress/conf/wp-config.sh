@@ -23,5 +23,4 @@ wp user create $WP_USR $WP_EMAIL --role=author --user_pass=$WP_PWD --allow-root
 
 wp theme install astra --activate --allow-root
 
-
-mkdir /run/php
+php-fpm7.4 -F

@@ -6,10 +6,9 @@ RUN apt-get update -y && \
 
 RUN sed -i 's/bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/' /etc/mysql/mariadb.conf.d/50-server.cnf
 
-COPY /conf/create_db.sh /app/
+COPY /conf/create_db.sh /bin
 
-WORKDIR /app
 
-RUN chmod +x ./create_db.sh
+RUN chmod +x /bin/create_db.sh
 
-CMD ["/bin/sh", "-c", "./create_db.sh && mysqld"]
+CMD ["create_db.sh"]
