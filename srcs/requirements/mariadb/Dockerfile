@@ -10,5 +10,4 @@ COPY /conf/create_db.sh /bin
 
 RUN chmod +x /bin/create_db.sh
 
-
 CMD ["create_db.sh"]
