@@ -6,6 +6,8 @@ php7.4-fpm php7.4-mysql curl
 
 WORKDIR /var/www/html/
 
+RUN rm -rf *
+
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
  
 RUN chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp
